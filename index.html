@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación a San Valentín</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Estilo para el fondo de collage */
+        .collage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #a61d55;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .boton {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .boton-si {
+            background-color: #28a745;
+        }
+
+        .boton-no {
+            background-color: #dc3545;
+        }
+
+        .corazon {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: flotar 5s infinite;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="collage">
+        <img src="img/1.jpg" alt="Foto 1">
+        <img src="img/2.jpg" alt="Foto 2">
+        <img src="img/3.jpg" alt="Foto 3">
+        <img src="img/4.jpg" alt="Foto 4">
+        <img src="img/5.jpg" alt="Foto 5">
+        <img src="img/6.jpg" alt="Foto 6">
+        <img src="img/7.jpg" alt="Foto 7">
+        <img src="img/8.jpg" alt="Foto 8">
+        <img src="img/9.jpg" alt="Foto 9">
+    </div>
+    
+    <h1>Invitación a San Valentín</h1>
+    <p>Para: 💖</p>
+    <div class="botones">
+        <button class="boton boton-si" onclick="avanzar()">Sí</button>
+        <button class="boton boton-no" onclick="agrandarSi()">No</button>
+    </div>
+
+    <script>
+        function avanzar() {
+            window.location.href = "https://www.ejemplo.com/siguiente_pagina";
+        }
+
+        function agrandarSi() {
+            let botonSi = document.querySelector('.boton-si');
+            let currentScale = botonSi.style.transform.match(/scale\(([^)]+)\)/);
+            let newScale = currentScale ? parseFloat(currentScale[1]) + 0.2 : 1.2;
+            botonSi.style.transform = `scale(${newScale})`;
+        }
+
+        function crearCorazon() {
+            let corazon = $('<div class="corazon">❤️</div>');
+            corazon.css({
+                left: Math.random() * 100 + "vw",
+                top: Math.random() * 100 + "vh",
+                fontSize: Math.random() * 30 + 20 + "px",
+                animationDuration: Math.random() * 3 + 2 + "s"
+            });
+            $('body').append(corazon);
+            setTimeout(() => corazon.remove(), 5000);
+        }
+
+        setInterval(crearCorazon, 300);
+    </script>
+</body>
+</html>

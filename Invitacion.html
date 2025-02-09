@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por aceptar!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffdde1;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+
+        .carta {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            text-align: center;
+            border: 2px solid #d63384;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #a61d55;
+            font-size: 20px;
+        }
+
+        .corazon {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: flotar 5s infinite;
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <h1>¡Gracias por aceptar la invitación! 💖</h1>
+        <p>Pasaremos un hermoso día juntos lleno de amor alegra y diversion como siempre estamos acostumbradosa hacer. Graciaspor ser la mejor novia del mundo y por elegirme a mi, de corazon gracias eternas amor🌹✨<br> <br>
+           La comida será chuchi el jueves 13 y de postre chocolatito o heladito como mi piojito elija. 🍫💕<br>
+           Te amo infinitamente pasando las estrellas y por toda la eternidad juntos amor 💞</p>
+    </div>
+
+    <script>
+        function crearCorazon() {
+            let corazon = $('<div class="corazon">❤️</div>');
+            corazon.css({
+                left: Math.random() * 100 + "vw",
+                top: Math.random() * 100 + "vh",
+                fontSize: Math.random() * 30 + 20 + "px",
+                animationDuration: Math.random() * 3 + 2 + "s"
+            });
+            $('body').append(corazon);
+            setTimeout(() => corazon.remove(), 5000);
+        }
+
+        setInterval(crearCorazon, 300);
+    </script>
+</body>
+</html>
