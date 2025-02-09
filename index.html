@@ -107,7 +107,7 @@
         <img src="img/9.jpg" alt="Foto 9">
     </div>
     
-    <h1>Te invito a pasar San Valentín con Foquich</h1>
+    <h1>Te invito a pasar San Valentin Con tu Foquich</h1>
     <p>Para: Mi Guadita💖</p>
     <div class="botones">
         <button class="boton boton-si" onclick="avanzar()">Sí</button>
@@ -123,20 +123,22 @@
             let botonSi = document.querySelector('.boton-si');
             let currentScale = botonSi.style.transform.match(/scale\(([^)]+)\)/);
             let newScale = currentScale ? parseFloat(currentScale[1]) + 0.2 : 1.2;
-            botonSi.style.transform = scale(${newScale});
+            botonSi.style.transform = `scale(${newScale})`;
         }
 
         function crearCorazon() {
             let corazon = $('<div class="corazon">❤️</div>');
             corazon.css({
                 left: Math.random() * 100 + "vw",
+                top: Math.random() * 100 + "vh",
+                fontSize: Math.random() * 30 + 20 + "px",
                 animationDuration: Math.random() * 3 + 2 + "s"
             });
             $('body').append(corazon);
             setTimeout(() => corazon.remove(), 5000);
         }
 
-        setInterval(crearCorazon, 500);
+        setInterval(crearCorazon, 300);
     </script>
 </body>
 </html>
